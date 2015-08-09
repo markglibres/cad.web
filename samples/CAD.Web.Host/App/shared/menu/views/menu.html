@@ -1,0 +1,7 @@
+﻿<div class="navbar-collapse collapse" ng-controller="menuController">
+    <ul class="nav navbar-nav">
+        <li ng-repeat="menu in menus">
+            <a server-url="{{menu.Baseurl}}">{{menu.Text}}</a>
+        </li>
+    </ul>
+</div>

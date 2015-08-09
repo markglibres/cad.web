@@ -1,0 +1,8 @@
+﻿@model IEnumerable<CAD.Web.Host.MenuItem>
+
+<ul class="nav navbar-nav">
+    @foreach (var menu in this.Model)
+    {
+        Html.RenderPartial("menuitem", menu);
+    }
+</ul>

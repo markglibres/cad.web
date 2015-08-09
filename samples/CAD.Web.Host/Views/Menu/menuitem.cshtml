@@ -1,0 +1,14 @@
+﻿@model CAD.Web.Host.MenuItem
+
+<li>
+    @Html.ActionLink(Model.Text, Model.Action, Model.Controller)
+    @if (Model.Items != null && Model.Items.Count() > 0)
+    {
+        <ul>
+            @foreach(var item in Model.Items)
+            {
+            Html.RenderPartial("menuitem", item);
+            }
+        </ul>
+    }
+</li>

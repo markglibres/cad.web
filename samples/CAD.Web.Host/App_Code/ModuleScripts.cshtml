@@ -1,0 +1,26 @@
+﻿@helper Render(string name)
+{
+    // your helper can contain code and/or markup, e.g.
+    // var msg = "Hello " + name;
+    // <p>@msg</p>
+    // For more information, visit http://go.microsoft.com/fwlink/?LinkID=204658
+
+    if (HttpContext.Current.Request != null)
+    {
+        //module based loading of angular js
+        var routeValues = HttpContext.Current.Request.RequestContext.RouteData.Values;
+        var controllerName = routeValues["controller"];
+
+        var moduleMainJs = string.Format("/app/serverpages/{0}/{1}.js", controllerName, name);
+        var moduleMainJsFullPath = HttpContext.Current.Server.MapPath(moduleMainJs);
+
+        if (System.IO.File.Exists(moduleMainJsFullPath))
+        {
+            @System.Web.Optimization.Scripts.Render("~/bundles/requirejs")
+            @System.Web.Optimization.Scripts.Render("~/bundles/angular")
+            <script src="@moduleMainJs"></script>
+        }
+
+    }
+
+}
