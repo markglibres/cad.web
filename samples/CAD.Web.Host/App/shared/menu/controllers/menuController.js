@@ -2,7 +2,7 @@
 
 define(['app'], function (app) {
 
-    var injectParams = ['$scope', 'formService'];
+    var injectParams = ['$scope', 'onlineformsService'];
 
     var menuController = function ($scope, formService) {
 

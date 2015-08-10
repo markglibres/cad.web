@@ -1,4 +1,23 @@
-﻿<input type="text" ng-model="Title" />
-<h1>Forms</h1>
-<div>{{ Title }}</div>
-<a mod-url="test">Test</a>
+﻿<form role="form" ng-submit="submitForm()">
+    <div class="form-group">
+        <label for="form-name">Name</label>
+        <input type="text" class="form-control" id="form-name" placeholder="Enter form name" ng-model="formData.name" />
+    </div>
+    <div class="form-group">
+        <label for="form-adminemail">Admin Recipient</label>
+        <input type="email" class="form-control" id="form-adminemail" placeholder="Enter admin email" ng-model="formData.adminemail" />
+    </div>
+    <div class="form-group">
+        <label for="form-file">File Upload</label>
+        <input type="file" id="form-file" class="btn btn-primary" file-upload="fileupload">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Submit</button>
+        <div loading-screen>Loading.. please wait.. </div>
+    </div>
+
+</form>
+
+<pre>
+    {{formData}}
+</pre>

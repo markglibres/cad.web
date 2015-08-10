@@ -4,10 +4,19 @@
    
     define(['app'], function (app) {
 
-        var injectparams = ['$scope'];
+        var injectparams = ['$scope', 'formService'];
 
-        var _controller = function ($scope) {
+        var _controller = function ($scope, formService) {
             $scope.Title = "Testing with angularjs module";
+            $scope.formData = {};
+
+            $scope.submitForm = function () {
+                formService.post('/Forms/Create', $scope.formData, $scope.fileupload)
+                .success(function (data) {
+                    console.log(data);
+                });
+
+            };
         };
 
         _controller.$inject = injectparams;

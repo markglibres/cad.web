@@ -14,9 +14,13 @@
 require(
     [
         'app',
+        'services/onlineformsService',
         'services/formService',
         'shared/menu/controllers/menuController',
         'directives/moduleDirectives',
+        'directives/loaderDirective',
+        'directives/uploadDirective',
+
     ],
     function () {
         angular.bootstrap(document, ['eforms']);

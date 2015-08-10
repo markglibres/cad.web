@@ -180,7 +180,9 @@
     <Content Include="App\components\README.txt" />
     <Content Include="App\components\test\controllers\testController.js" />
     <Content Include="App\components\test\views\test.html" />
+    <Content Include="App\directives\loaderDirective.js" />
     <Content Include="App\directives\moduleDirectives.js" />
+    <Content Include="App\directives\uploadDirective.js" />
     <Content Include="App\serverpages\forms\app.js" />
     <Content Include="App\serverpages\forms\main.js" />
     <Content Include="App\serverpages\home\app.js" />
@@ -189,8 +191,9 @@
     <Content Include="App\components\dashboard\controllers\dashboardController.js" />
     <Content Include="App\components\dashboard\views\dashboard.html" />
     <Content Include="App\serverpages\README.txt" />
-    <Content Include="App\shared\menu\controllers\menuController.js" />
     <Content Include="App\services\formService.js" />
+    <Content Include="App\shared\menu\controllers\menuController.js" />
+    <Content Include="App\services\onlineformsService.js" />
     <Content Include="App\shared\menu\views\menu.html" />
     <Content Include="Configuration\Json\README.txt" />
     <Content Include="Configuration\README.txt" />
@@ -264,7 +267,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\assets\" />
-    <Folder Include="App\components\test\bin\" />
     <Folder Include="App\modules\" />
     <Folder Include="App\shared\menu\services\" />
     <Folder Include="App_Data\" />

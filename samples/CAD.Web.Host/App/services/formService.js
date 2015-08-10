@@ -4,27 +4,35 @@ define(['app'], function (app) {
 
     var injectParams = ['$http', '$q', '$log'];
 
-    var formFactory = function ($http, $q, $log) {
-        var serviceBase = '/api/formservice/',
-            factory = {};
-        
-        factory.getForms = function () {
-            return $http.get(serviceBase).then(
-                function (response) {
-                    return response.data;
-                },
-                function (error) {
-                    console.log(error);
-                    return [];
-                });
+    var _factory = function ($http, $q, $log) {
+        var factory = {};
+
+        factory.post = function (url, formData, file) {
+
+            var data = factory.formatData(formData, file);
+
+            return (
+                $http.post(url, data, {
+                    transformRequest: angular.identity,
+                    headers: { 'Content-Type': undefined }
+                })
+            );
+        };
+
+        factory.formatData = function (dataToFormat, file) {
+            var data = new FormData();
+            angular.forEach(dataToFormat, function (value, key) {
+                data.append(key, value);
+            });
+            data.append('file', file);
+            return data;
         };
 
         return factory;
     };
 
-    formFactory.$inject = injectParams;
+    _factory.$inject = injectParams;
 
-   
-    app.factory('formService', formFactory);
+    app.factory('formService', _factory);
 
 });
