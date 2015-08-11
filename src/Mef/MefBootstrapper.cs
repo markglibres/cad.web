@@ -53,7 +53,7 @@ namespace CAD.Web
             }
         }
 
-        public static CompositionContainer Initialize()
+        public static CompositionContainer Initialize(params string[] searchPatterns)
         {
             if (_container == null)
             {
@@ -78,9 +78,22 @@ namespace CAD.Web
                     
                     if(Directory.Exists(pluginPath))
                     {
-                        //var dirCatalog = new DirectoryCatalog(pluginPath);
-                        var dirCatalog = new DirectoryCatalog(pluginPath, "*.Module.dll");
-                        catalog.Catalogs.Add(dirCatalog);
+                        if(searchPatterns.Count() > 0)
+                        {
+                            foreach(var pattern in searchPatterns)
+                            {
+                                //var dirCatalog = new DirectoryCatalog(pluginPath);
+                                var dirCatalog = new DirectoryCatalog(pluginPath, pattern);
+                                catalog.Catalogs.Add(dirCatalog);
+                            }
+                        }
+                        else
+                        {
+                            //var dirCatalog = new DirectoryCatalog(pluginPath);
+                            var dirCatalog = new DirectoryCatalog(pluginPath, "*.Module.dll");
+                            catalog.Catalogs.Add(dirCatalog);
+                        }
+                        
                     }
                     
 
@@ -99,9 +112,9 @@ namespace CAD.Web
         /// <summary>
         /// Compose for MVC
         /// </summary>
-        public static void ComposeMVC()
+        public static void ComposeMVC(params string[] searchPatterns)
         {
-            MefBootstrapper.Initialize();
+            MefBootstrapper.Initialize(searchPatterns);
 
             ControllerBuilder.Current.SetControllerFactory(new MefControllerFactory(_container));
             ViewEngines.Engines.Add(new MefViewEngine(MefBootstrapper.ModulesFolder, MefBootstrapper.ModuleDirectories));
@@ -112,9 +125,9 @@ namespace CAD.Web
         /// <summary>
         /// Compose for Web API or MVC with Web API
         /// </summary>
-        public static void ComposeWebAPI()
+        public static void ComposeWebAPI(params string[] searchPatterns)
         {
-            MefBootstrapper.Initialize();
+            MefBootstrapper.Initialize(searchPatterns);
             System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = _resolver as System.Web.Http.Dependencies.IDependencyResolver;
 
             //MefAssemblyResolver assemblyResolver = new MefAssemblyResolver(_container);
