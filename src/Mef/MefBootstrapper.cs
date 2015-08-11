@@ -75,10 +75,11 @@ namespace CAD.Web
                 foreach (var moduleFolder in moduleFolders)
                 {
                     var pluginPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ModulesFolder, moduleFolder, "bin");
-                    //var dirCatalog = new DirectoryCatalog(pluginPath,"*Module.dll");
+                    
                     if(Directory.Exists(pluginPath))
                     {
-                        var dirCatalog = new DirectoryCatalog(pluginPath);
+                        //var dirCatalog = new DirectoryCatalog(pluginPath);
+                        var dirCatalog = new DirectoryCatalog(pluginPath, "*.Module.dll");
                         catalog.Catalogs.Add(dirCatalog);
                     }
                     

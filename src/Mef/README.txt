@@ -58,7 +58,7 @@ protected void Application_Start()
 
 How to (Module Application):
 
-1. Create separate web application
+1. Create separate web application. Assembly name should end with *.Module.dll
 2. Add assembly: System.ComponentModel.Composition
 3. Add reference for CAD.Web
 4. Create new controller
