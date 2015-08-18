@@ -44,7 +44,8 @@ namespace CAD.Web
                 try
                 {
                     controller = _default.CreateController(requestContext, controllerName);
-                    _container.ComposeParts(controller);
+                    if (controller != null)
+                        _container.ComposeParts(controller);
                     
                 }
                 catch(Exception ex)
