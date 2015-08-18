@@ -102,7 +102,7 @@
     <Compile Include="Configuration\ITenant.cs" />
     <Compile Include="Configuration\ITenantManager.cs" />
     <Compile Include="Configuration\ITenantPlugin.cs" />
-    <Compile Include="Helper\ModulePath.cs" />
+    <Compile Include="Extensions\ModulePathExtensions.cs" />
     <Compile Include="Html\HtmlHelper.cs" />
     <Compile Include="Mef\Attributes\ApiModuleAttribute.cs" />
     <Compile Include="Mef\Attributes\IApiModuleAttribute.cs" />
