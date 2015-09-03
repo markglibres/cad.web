@@ -26,7 +26,7 @@ namespace CAD.Web
         private static string ToRelativePath(string physicalPath)
         {
             var applicationPath = HttpContext.Current.Request.ServerVariables["APPL_PHYSICAL_PATH"].ToLower();
-            return physicalPath.Replace(applicationPath, "~/").Replace("\\", "/");
+            return physicalPath.Replace(applicationPath, "/").Replace("\\", "/");
         }
 
         public static string AssemblyDirectory(this object executingObject)

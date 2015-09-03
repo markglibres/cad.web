@@ -51,7 +51,7 @@ namespace CAD.Web
                 catch(Exception ex)
                 {
                     //throw new Exception("Controller " + controllerName + " not found!");
-                    throw;
+                    throw ex;
                 }
             }
             else
