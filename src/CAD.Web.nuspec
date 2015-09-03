@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/CtrlAltDelete-Solutions/cad.web</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>removed unused references</releaseNotes>
+    <releaseNotes>Downgraded to use .Net 4.5</releaseNotes>
     <copyright>Copyright 2015</copyright>
   </metadata>
 </package>
